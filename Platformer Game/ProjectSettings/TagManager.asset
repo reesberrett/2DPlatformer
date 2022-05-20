@@ -7,6 +7,9 @@ TagManager:
   - coin
   - key
   - key2
+  - Life1
+  - Life2
+  - Life3
   layers:
   - Default
   - TransparentFX

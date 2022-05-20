@@ -11,10 +11,11 @@ using UnityEngine;
 
 public class ResetScene_v2 : MonoBehaviour
 {
+    GameController controller;
     // Start is called before the first frame update
     void Start()
     {
-
+        controller = GameObject.FindObjectOfType<GameController>();
     }
 
     // Update is called once per frame
@@ -23,13 +24,18 @@ public class ResetScene_v2 : MonoBehaviour
 
     }
 
+
+
     public string tagOfObjectToReloadScene = "Player";
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (this.enabled)
         {
             if (collision.gameObject.tag.ToLower() == tagOfObjectToReloadScene.ToLower())
-                Reload();
+            {
+                controller.DecreaseHealth();
+                controller.RespawnPlayer();
+            }
         }
 
     }
